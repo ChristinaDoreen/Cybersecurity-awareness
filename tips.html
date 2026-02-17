@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Tips</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="script.css">
+</head>
+
+<body class="lm-body">
+  <header>
+    <nav>
+      <a href="Home Page.html">HOME</a>
+      <a href="About.html">ABOUT</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <!-- Top intro -->
+  <section class="tips-hero">
+    <div class="tips-hero-box">
+      <h1>Get Tips: Stay Secure Online</h1>
+      <p>Simple habits that protect your accounts, money, and identity in Qatar’s digital world.</p>
+    </div>
+  </section>
+
+  <!-- Tips cards -->
+  <section class="tips-grid" id="checklist">
+    <div class="lm-card tip-card">
+      <img src="lock-icon1.png" class="lm-icon" alt="Passwords">
+      <h3>Use Strong Passwords</h3>
+      <p>Create a unique password for every account. Avoid names, birthdays, and repeated patterns.</p>
+      <ul class="lm-points">
+        <li>12+ characters</li>
+        <li>Mix letters, numbers, symbols</li>
+        <li>Use a password manager</li>
+      </ul>
+    </div>
+
+    <div class="lm-card tip-card">
+      <img src="shield-icon1.png" class="lm-icon" alt="2FA">
+      <h3>Turn On Two-Factor Authentication (2FA)</h3>
+      <p>Even if your password is leaked, 2FA blocks most unauthorised logins.</p>
+      <ul class="lm-points">
+        <li>Prefer authenticator apps</li>
+        <li>Keep backup codes safe</li>
+        <li>Enable 2FA on email first</li>
+      </ul>
+    </div>
+
+    <div class="lm-card tip-card">
+      <img src="threat-icon.png" class="lm-icon" alt="Phishing">
+      <h3>Think Before You Click</h3>
+      <p>Phishing works because of urgency and fear. Pause and verify before acting.</p>
+      <ul class="lm-points">
+        <li>Check sender + domain</li>
+        <li>Hover links before clicking</li>
+        <li>Don’t open unknown attachments</li>
+      </ul>
+    </div>
+
+    <div class="lm-card tip-card">
+      <img src="shield-icon.png" class="lm-icon" alt="Updates">
+      <h3>Keep Software Updated</h3>
+      <p>Updates fix security holes that attackers actively exploit.</p>
+      <ul class="lm-points">
+        <li>Turn on auto-updates</li>
+        <li>Update browser + phone</li>
+        <li>Remove unused apps</li>
+      </ul>
+    </div>
+
+    <div class="lm-card tip-card">
+      <img src="cyber-lock.png" class="lm-icon" alt="Privacy">
+      <h3>Protect Your Privacy</h3>
+      <p>Limit what you share online—scammers use details to target you.</p>
+      <ul class="lm-points">
+        <li>Hide phone number on social media</li>
+        <li>Review app permissions</li>
+        <li>Use private accounts where possible</li>
+      </ul>
+    </div>
+
+    <div class="lm-card tip-card">
+      <img src="lock-icon.png" class="lm-icon" alt="WiFi">
+      <h3>Be Careful With Public Wi-Fi</h3>
+      <p>Public networks can expose logins and personal data.</p>
+      <ul class="lm-points">
+        <li>Avoid banking on public Wi-Fi</li>
+        <li>Use mobile data for sensitive tasks</li>
+        <li>Log out after use</li>
+      </ul>
+    </div>
+  </section>
+  <section class="teaser-section">
+            <div class="teaser-card" id="card1">
+                <h3>Common Cyber Threats in Qatar</h3>
+                <div class="visual-map"></div>
+                <p>Cybersecurity isn't just personal - it protects Qatar's future in every sector. 
+                    Discover the most common attacks targeting Qatar's digital space.</p>
+                <a href = "more.html">
+                    <button class="cta-btn">SEE THREATS →</button>
+                </a>
+            </div>
+            <div class="teaser-card" id="card3">
+                <h3>Test Your Cyber Knowledge</h3>
+                <div class="question-mark">?</div>
+                <p>How much do you actually know about cyber threats? 
+                    Recognize phishing emails, fake websites, and other online scams before they trick you.</p>
+                <a href = "quiz.html">
+                  <button class="cta-btn">TAKE THE QUIZ →</button>
+                </a>
+            </div>
+        </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-section">
+        <h3>Cyber Awareness Qatar</h3>
+        <p>
+          Promoting cybersecurity awareness to protect individuals,
+          organisations, and the digital future of Qatar.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="Home Page.html">Home</a></li>
+          <li><a href="more.html">Cyber Threats</a></li>
+          <li><a href="tips.html">Security Check</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="contact.html">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Awareness</h4>
+        <ul>
+          <li>Phishing Protection</li>
+          <li>Password Safety</li>
+          <li>Online Privacy</li>
+          <li>Safe Internet Usage</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Cyber Awareness Qatar. All rights reserved.</p>
+      <p class="disclaimer">This website is for educational and awareness purposes only.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal for tip cards (reuses your .lm-card reveal style)
+    const tipCards = document.querySelectorAll('.tip-card');
+
+    const revealOnScroll = () => {
+      const triggerPoint = window.innerHeight * 0.85;
+      tipCards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerPoint) card.classList.add('reveal');
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn More</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="script.css">
+</head>
+
+<body class="lm-body">
+    <header>
+        <nav>
+            <a href="Home Page.html">HOME</a>
+            <a href="About.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+    <section class="lm-highlights">
+        <div class="lm-card">
+        <img src="shield-icon1.png" class="lm-icon" alt="Cybersecurity Awareness">
+        <h3>Cybersecurity Awareness Starts With You</h3>
+        <p>
+            Cybersecurity awareness is about recognising danger before damage is done.
+            It is the knowledge and daily habits that protect data systems and people
+            from cyber threats.
+        </p>
+        </div>
+
+        <div class="lm-card">
+            <img src="threat-icon.png" class="lm-icon" alt="Cyber Threats">
+            <h3>The Threats You Are Most Likely to Face</h3>
+            <p>
+            Cyber attacks are no longer rare or complex. Most succeed because they
+            exploit human behaviour rather than technology.
+            </p>
+
+            <p><b>Phishing Scams</b><br>
+            Fraudulent emails or websites designed to steal passwords financial details
+            or personal information by pretending to be trusted sources.
+            </p>
+
+            <p><b>Malware</b><br>
+            Malicious software that damages systems steals data or allows unauthorised
+            access. Often spread through downloads or infected links.
+            </p>
+
+            <p><b>Social Engineering</b><br>
+            Psychological manipulation that pressures people into revealing confidential
+            information or bypassing security rules.
+            </p>
+
+            <p><b>Denial of Service Attacks</b><br>
+            Attempts to overwhelm systems so legitimate users cannot access services.
+            These attacks target availability rather than data.
+            </p>
+        </div>
+
+        <div class="lm-card">
+            <img src="lock-icon1.png" class="lm-icon" alt="Online Safety">
+            <h3>Simple Habits That Stop Most Attacks</h3>
+
+            <p>Good cyber hygiene reduces risk dramatically. These habits take minutes
+            to apply but prevent the majority of attacks.
+            </p>
+
+            <p><b>Use Strong Passwords</b><br>
+            Create unique complex passwords for each account and store them securely
+            using a trusted password manager.
+            </p>
+
+            <p><b>Keep Software Updated</b><br>
+            Updates close security gaps that attackers actively exploit.
+            </p>
+
+            <p><b>Think Before You Click</b><br>
+            Verify links attachments and unexpected messages especially when urgency
+            is involved.
+            </p>
+
+            <p><b>Enable Two Factor Authentication</b><br>
+            Even if a password is compromised this extra step blocks unauthorised access.
+            </p>
+        </div>
+    </section>
+    <section class="teaser-section">
+            <div class="teaser-card" id="card2">
+                <h3>Are You Secure Online?</h3>
+                <div class="lock-icon"></div>
+                <p>Most users think they're safe. But are you really? 
+                    Learn simple steps to secure your passwords and prevent cyber threats</p>
+                <a href = "tips.html">
+                    <button class="cta-btn">GET TIPS →</button>
+                </a>
+            </div>
+            <div class="teaser-card" id="card3">
+                <h3>Test Your Cyber Knowledge</h3>
+                <div class="question-mark">?</div>
+                <p>How much do you actually know about cyber threats? 
+                    Recognize phishing emails, fake websites, and other online scams before they trick you.</p>
+                <a href = "quiz.html">
+                  <button class="cta-btn">TAKE THE QUIZ →</button>
+                </a>
+            </div>
+        </section>
+    <footer class="site-footer">
+            <div class="footer-container">
+                <!-- Column 1 -->
+                <div class="footer-section">
+                    <h3>Cyber Awareness Qatar</h3>
+                    <p>Promoting cybersecurity awareness to protect individuals,organizations, and the digital future of Qatar.</p>
+                </div>
+                <!-- Column 2 -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="Home Page.html">Home</a></li>
+                        <li><a href="more.html">Cyber Threats</a></li>
+                        <li><a href="security-check.html">Security Check</a></li>
+                        <li><a href="quiz.html">Quiz</a></li>
+                        <li><a href="contact.html">Sign Up</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div class="footer-section">
+                    <h4>Awareness</h4>
+                    <ul>
+                        <li>Phishing Protection</li>
+                        <li>Password Safety</li>
+                        <li>Online Privacy</li>
+                        <li>Safe Internet Usage</li>
+                    </ul>
+                </div>
+            </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Cyber Awareness Qatar. All rights reserved.</p>
+        <p class="disclaimer">
+            This website is for educational and awareness purposes only.
+        </p>
+    </div>
+</footer>
+    <script>
+  const cards = document.querySelectorAll('.lm-card');
+
+  const revealOnScroll = () => {
+    const triggerPoint = window.innerHeight * 0.85;
+
+    cards.forEach(card => {
+      const cardTop = card.getBoundingClientRect().top;
+      if (cardTop < triggerPoint) {
+        card.classList.add('reveal');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+</script>
+</body>
+    
+</body>
+</html>

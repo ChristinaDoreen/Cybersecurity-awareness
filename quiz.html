@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyber Knowledge Quiz</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="script.css">
+</head>
+
+<body class="quiz-body">
+  <header>
+    <nav>
+      <a href="Home Page.html">HOME</a>
+      <a href="About.html">ABOUT</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <main class="quiz-wrap">
+    <section class="quiz-hero">
+      <h1 class="quiz-title">Test Your Cyber Knowledge</h1>
+      <p class="quiz-sub">
+        Real-life scenarios. Quick decisions. Learn what to do (and what to avoid).
+      </p>
+
+      <div class="quiz-topbar">
+        <span class="pill" id="qCount">Question 1 / 10</span>
+        <div class="progress" aria-label="Quiz progress">
+          <div id="progressBar"></div>
+        </div>
+        <span class="pill" id="scorePill">Score: 0</span>
+      </div>
+    </section>
+
+    <section class="quiz-card" aria-live="polite">
+      <div class="scenario" id="scenarioText"></div>
+      <div class="question" id="questionText"></div>
+
+      <div class="choices" id="choicesWrap"></div>
+
+      <div class="feedback" id="feedbackBox"></div>
+
+      <div class="actions">
+        <button class="btn-quiz btn-ghost" id="skipBtn" type="button">Skip</button>
+        <button class="btn-quiz btn-primary" id="nextBtn" type="button" disabled>Next</button>
+      </div>
+
+      <div class="result" id="resultBox">
+        <h3 id="resultTitle"></h3>
+        <p id="resultText"></p>
+        <p class="tiny" id="resultTip"></p>
+
+            <div class="actions" style="justify-content: flex-start; margin-top: 14px;">
+                <button class="btn-quiz btn-primary" id="restartBtn" type="button">Restart Quiz</button>
+            </div>
+            <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.15); margin: 18px 0;">
+
+<p style="font-family: Roboto, sans-serif; font-size: 1.05rem; line-height: 1.6; opacity: 0.95;">
+  Want to go beyond the score?  
+  Learn how we help people stay safe online with practical guidance and real-world cyber awareness.
+</p>
+
+<div class="actions" style="justify-content: flex-start; margin-top: 10px;">
+  <a href="About.html"
+     class="btn-quiz btn-primary"
+     style="text-decoration: none;">
+     Learn More About Us →
+  </a>
+</div>
+
+
+        </div>
+    </section>
+  </main>
+  <section class="teaser-section">
+            <div class="teaser-card" id="card1">
+                <h3>Common Cyber Threats in Qatar</h3>
+                <div class="visual-map"></div>
+                <p>Cybersecurity isn't just personal - it protects Qatar's future in every sector. 
+                    Discover the most common attacks targeting Qatar's digital space.</p>
+                <a href = "more.html">
+                    <button class="cta-btn">SEE THREATS →</button>
+                </a>
+            </div>
+            <div class="teaser-card" id="card2">
+                <h3>Are You Secure Online?</h3>
+                <div class="lock-icon"></div>
+                <p>Most users think they're safe. But are you really? 
+                    Learn simple steps to secure your passwords and prevent cyber threats</p>
+                <a href = "tips.html">
+                    <button class="cta-btn">GET TIPS →</button>
+                </a>
+            </div>
+        </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-section">
+        <h3>Cyber Awareness Qatar</h3>
+        <p>
+          Promoting cybersecurity awareness to protect individuals,
+          organisations, and the digital future of Qatar.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="Home Page.html">Home</a></li>
+          <li><a href="more.html">Cyber Threats</a></li>
+          <li><a href="tips.html">Security Check</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="contact.html">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Awareness</h4>
+        <ul>
+          <li>Phishing Protection</li>
+          <li>Password Safety</li>
+          <li>Online Privacy</li>
+          <li>Safe Internet Usage</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Cyber Awareness Qatar. All rights reserved.</p>
+      <p class="disclaimer">This website is for educational and awareness purposes only.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scenario-based quiz (no external libs)
+    const quiz = [
+      {
+        scenario: "You’re at a café and your phone automatically connects to a free Wi-Fi named “Free_Public_WiFi”. You want to open your bank app to transfer money quickly.",
+        question: "What’s the safest decision right now?",
+        choices: [
+          "Use the free Wi-Fi and open the bank app (it’s encrypted anyway).",
+          "Switch to mobile data / personal hotspot before opening the bank app.",
+          "Ask the café staff for the Wi-Fi password and then open the bank app.",
+          "Open the bank app but don’t type the password until later."
+        ],
+        answer: 1,
+        explain: "Public Wi-Fi can be spoofed or monitored. For banking, use mobile data/hotspot. Asking for a password helps, but it can still be insecure."
+      },
+      {
+        scenario: "You receive an SMS: “Your delivery is on hold. Pay 5 QAR to reschedule. Link: q-delivery-support.com”. You weren’t expecting a delivery today.",
+        question: "What should you do first?",
+        choices: [
+          "Click the link to see if it’s real.",
+          "Reply asking for more details.",
+          "Ignore the link and verify using the official delivery app/website or known number.",
+          "Pay the small fee quickly to avoid missing the delivery."
+        ],
+        answer: 2,
+        explain: "Small-fee SMS links are a common scam. Don’t click. Verify through official apps/websites or contact numbers you already trust."
+      },
+      {
+        scenario: "A colleague emails: “URGENT: I need you to buy gift cards now and send the codes. I’m in a meeting.” The email looks like their name, but the sender address is slightly odd.",
+        question: "What’s the best response?",
+        choices: [
+          "Buy the gift cards to help them quickly.",
+          "Forward the email to others and ask what to do.",
+          "Call/Message the colleague using a known number to confirm before doing anything.",
+          "Reply asking them to confirm the request again."
+        ],
+        answer: 2,
+        explain: "This is a classic impersonation scam. Verify using an independent channel (call/message). Don’t rely on replying to the same email."
+      },
+      {
+        scenario: "You’re signing up for a new account. The website asks you to create a password. You usually reuse the same password to remember it easily.",
+        question: "Which is the best habit?",
+        choices: [
+          "Reuse your main password, but add “123” at the end.",
+          "Use a unique strong password and store it in a password manager.",
+          "Use your date of birth + name so you won’t forget it.",
+          "Use the same password, but change it every few years."
+        ],
+        answer: 1,
+        explain: "Password reuse is how one leak becomes many account takeovers. Unique passwords + a password manager is the safest and easiest long-term."
+      },
+      {
+        scenario: "Your phone shows a pop-up: “Storage full! Install Cleaner Pro to speed up your phone.” It appears while browsing a random website.",
+        question: "What’s the safest action?",
+        choices: [
+          "Install the app immediately so the phone doesn’t crash.",
+          "Close the tab and manage storage through phone settings / official app store only.",
+          "Tap the pop-up once to see more details.",
+          "Restart your phone and try again."
+        ],
+        answer: 1,
+        explain: "Random pop-ups often push risky apps. Close it and use device settings. Only install apps from official stores after checking reviews and permissions."
+      },
+      {
+        scenario: "You log in to your email and it asks for a “verification code” but you never enabled two-factor authentication. The message says, “If this wasn’t you, ignore.”",
+        question: "What does this most likely mean?",
+        choices: [
+          "Your account is definitely hacked already.",
+          "Someone is trying to log in and triggered a security check.",
+          "It’s a normal email reminder; nothing to worry about.",
+          "Your email provider is broken."
+        ],
+        answer: 1,
+        explain: "A login attempt may have triggered a code request. Change your password, review login activity, and enable 2FA to block future attempts."
+      },
+      {
+        scenario: "A friend sends you a link on social media: “Look at this video of you 😂”. The URL is shortened and the page asks you to log in again.",
+        question: "What should you do?",
+        choices: [
+          "Log in fast to see the video.",
+          "Ask your friend what it is, then log in if they say it’s fine.",
+          "Don’t log in. Open the platform directly and check messages; warn your friend their account may be compromised.",
+          "Share the link with others to confirm if it’s safe."
+        ],
+        answer: 2,
+        explain: "These are common credential-harvesting scams. Don’t log in via the link. Check via the official app/site and alert your friend."
+      },
+      {
+        scenario: "You’re installing a flashlight app and it requests access to contacts, SMS, and microphone. The app is free and has lots of ads.",
+        question: "What’s the best decision?",
+        choices: [
+          "Allow all permissions; it needs them to work.",
+          "Install it but deny permissions you don’t understand or that aren’t needed.",
+          "Allow permissions now, remove them later if you remember.",
+          "Install any app if it has a high download count."
+        ],
+        answer: 1,
+        explain: "Permissions should match the purpose. A flashlight doesn’t need SMS/contacts/mic. Deny unnecessary permissions or choose a safer app."
+      },
+      {
+        scenario: "You get a call: “This is support. We detected suspicious activity. Tell us the OTP you just received to secure your account.” You immediately receive an OTP.",
+        question: "What should you do?",
+        choices: [
+          "Share the OTP so they can secure the account.",
+          "Hang up and contact the company using the official number/app.",
+          "Ask them to repeat the OTP to confirm they are real.",
+          "Stay on the call and try logging in while talking."
+        ],
+        answer: 1,
+        explain: "No real support team asks for OTP. OTPs are meant to stop attackers. Hang up and contact the company through official channels."
+      },
+      {
+        scenario: "You find a USB drive in a public place. It has a label “Staff Salaries 2026”. You’re curious and want to see what’s inside.",
+        question: "What is the safest option?",
+        choices: [
+          "Plug it into your personal laptop to check quickly.",
+          "Plug it into any computer, but don’t open files.",
+          "Do not plug it in; give it to IT/security or dispose safely.",
+          "Plug it into a friend’s computer instead."
+        ],
+        answer: 2,
+        explain: "Unknown USBs can carry malware. The safest move is not to plug it in at all—hand it to IT/security for proper handling."
+      }
+    ];
+
+    // State
+    let index = 0;
+    let score = 0;
+    let answered = false;
+
+    // Elements
+    const scenarioText = document.getElementById("scenarioText");
+    const questionText = document.getElementById("questionText");
+    const choicesWrap  = document.getElementById("choicesWrap");
+    const feedbackBox  = document.getElementById("feedbackBox");
+    const nextBtn      = document.getElementById("nextBtn");
+    const skipBtn      = document.getElementById("skipBtn");
+    const qCount       = document.getElementById("qCount");
+    const scorePill    = document.getElementById("scorePill");
+    const progressBar  = document.getElementById("progressBar");
+
+    const resultBox    = document.getElementById("resultBox");
+    const resultTitle  = document.getElementById("resultTitle");
+    const resultText   = document.getElementById("resultText");
+    const resultTip    = document.getElementById("resultTip");
+    const restartBtn   = document.getElementById("restartBtn");
+
+    function updateTopbar() {
+      qCount.textContent = `Question ${Math.min(index + 1, quiz.length)} / ${quiz.length}`;
+      scorePill.textContent = `Score: ${score}`;
+      const pct = (index / quiz.length) * 100;
+      progressBar.style.width = `${pct}%`;
+    }
+
+    function renderQuestion() {
+      // Reset UI
+      answered = false;
+      nextBtn.disabled = true;
+      feedbackBox.style.display = "none";
+      feedbackBox.innerHTML = "";
+      resultBox.style.display = "none";
+
+      const q = quiz[index];
+      scenarioText.textContent = `Scenario: ${q.scenario}`;
+      questionText.textContent = q.question;
+
+      choicesWrap.innerHTML = "";
+      q.choices.forEach((choice, i) => {
+        const btn = document.createElement("button");
+        btn.className = "choice-btn";
+        btn.type = "button";
+        btn.textContent = choice;
+        btn.addEventListener("click", () => handleAnswer(i, btn));
+        choicesWrap.appendChild(btn);
+      });
+
+      updateTopbar();
+    }
+
+    function handleAnswer(selectedIndex, selectedBtn) {
+      if (answered) return;
+      answered = true;
+
+      const q = quiz[index];
+      const buttons = [...choicesWrap.querySelectorAll(".choice-btn")];
+      buttons.forEach(b => b.disabled = true);
+
+      // Mark correct/wrong
+      const correctBtn = buttons[q.answer];
+      correctBtn.classList.add("correct");
+
+      if (selectedIndex === q.answer) {
+        score += 1;
+        selectedBtn.classList.add("correct");
+        feedbackBox.innerHTML = `<strong>Correct.</strong> ${q.explain}`;
+      } else {
+        selectedBtn.classList.add("wrong");
+        feedbackBox.innerHTML = `<strong>Not quite.</strong> ${q.explain}`;
+      }
+
+      scorePill.textContent = `Score: ${score}`;
+      feedbackBox.style.display = "block";
+      nextBtn.disabled = false;
+    }
+
+    function showResults() {
+      // progress full
+      progressBar.style.width = "100%";
+
+      const percent = Math.round((score / quiz.length) * 100);
+      let level = "";
+      let tip = "";
+
+      if (percent >= 90) {
+        level = "Excellent cyber awareness ✅";
+        tip = "Keep it up: enable 2FA everywhere and keep updating your devices.";
+      } else if (percent >= 70) {
+        level = "Strong, but improve a few habits ⚡";
+        tip = "Focus on: spotting phishing links, verifying requests, and using a password manager.";
+      } else if (percent >= 50) {
+        level = "Decent start — you’re at risk in real life 👀";
+        tip = "Learn the common scams (SMS links, OTP calls, urgent gift-card requests) and practise safe clicks.";
+      } else {
+        level = "High risk — time to level up 🔒";
+        tip = "Start with basics: unique passwords, 2FA, verifying links, and avoiding unknown downloads/USBs.";
+      }
+
+      resultTitle.textContent = `Your Result: ${score} / ${quiz.length} (${percent}%)`;
+      resultText.textContent = level;
+      resultTip.textContent = `Next step: ${tip}`;
+
+      resultBox.style.display = "block";
+      feedbackBox.style.display = "none";
+      choicesWrap.innerHTML = "";
+      scenarioText.textContent = "Quiz completed.";
+      questionText.textContent = "Want to test again or improve your security habits?";
+
+      nextBtn.disabled = true;
+      skipBtn.disabled = true;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      if (!answered) return;
+
+      index += 1;
+      if (index >= quiz.length) {
+        showResults();
+      } else {
+        renderQuestion();
+      }
+    });
+
+    skipBtn.addEventListener("click", () => {
+      // allow skip without answering
+      index += 1;
+      if (index >= quiz.length) {
+        showResults();
+      } else {
+        renderQuestion();
+      }
+    });
+
+    restartBtn.addEventListener("click", () => {
+      index = 0;
+      score = 0;
+      skipBtn.disabled = false;
+      renderQuestion();
+    });
+
+    // Init
+    renderQuestion();
+  </script>
+</body>
+</html>
